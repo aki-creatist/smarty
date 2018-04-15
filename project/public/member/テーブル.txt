@@ -1,0 +1,46 @@
+// 表示
+SELECT
+  Members.id,
+  Members.username
+FROM
+  members Members
+WHERE
+  Members.id = 1
+LIMIT
+  1;
+
+SELECT
+  MembersTraffics.id,
+  MembersTraffics.member_id,
+  MembersTraffics.traffic_id,
+  Traffics.id,
+  Traffics.name
+FROM
+  traffics Traffics
+  INNER JOIN members_traffics MembersTraffics ON Traffics.id = (MembersTraffics.traffic_id)
+WHERE
+  MembersTraffics.member_id in (1);
+
+SELECT
+  Traffics.id AS `Traffics__id`,
+  Traffics.name AS `Traffics__name`
+FROM
+  traffics Traffics
+LIMIT
+  200
+
+
+BEGIN
+SELECT
+  MembersTraffics.id,
+  MembersTraffics.member_id,
+  MembersTraffics.traffic_id
+FROM
+  members_traffics MembersTraffics
+WHERE
+  MembersTraffics.member_id = 1
+DELETE FROM
+  members_traffics
+WHERE
+  id = 3
+COMMIT

@@ -1,0 +1,6 @@
+.idea
+/laradock/
+/database/mysql/ken_all.csv
+/project/php_libs/vendor
+/project/php_libs/templates_c/
+/project/php_libs/class/controller/base/Pager/

@@ -1,0 +1,115 @@
+# view
+
+## 渡す値
+
+### contents
+
+* index.tpl
+    * `posted_data`
+    * `err_msgs`
+    * `btn`
+    * `search_key`
+    * `message`
+    * `count`
+    * (`debug_str`)
+
+### members
+
+* form.tpl
+    * `title`
+    * `posted_data`
+    * `err_msgs`
+    * `genders`
+    * `select_gender`
+    * `date`
+    * `select_date`
+    * `traffics`
+    * `select_traffic`
+    * `btn`
+    * `mode`
+    * `action`
+    * (`debug_str`)
+* confirm.tpl
+    * `title`
+    * `message`
+    * `posted_data`
+    * `btn`
+    * `mode`
+    * `action`    
+    * (`debug_str`)
+* login.tpl
+    * `title`
+    * `mode`
+    * `auth_error_mess`
+    * (`debug_str`)
+* member_top.tpl
+    * `title`
+    * `disp_login_state`
+    * `last_name`
+    * `first_name`
+    * (`debug_str`)
+* message.tpl
+    * `title`
+    * `message`
+    * (`debug_str`)
+* premember.tpl
+    * `title`
+    * `message`
+    * (`debug_str`)
+
+### systems
+
+* form.tpl
+    * `title`
+    * `posted_data`
+    * `err_msgs`
+    * `genders`
+    * `select_gender`
+    * `date`
+    * `select_date`
+    * `traffics`
+    * `select_traffic`
+    * `btn`
+    * `mode`
+    * `action`
+    * (`debug_str`)
+* confirm.tpl
+    * `title`
+    * `message`
+    * `posted_data`
+    * `btn`
+    * `mode`
+    * `action`    
+    * (`debug_str`)
+* complete.tpl
+    * `title`
+    * `message`
+    * (`debug_str`)
+* detail.tpl
+    * `title`
+    * `message`
+    * `posted_data`
+    * `btn`
+    * `mode`
+    * `action`    
+    * (`debug_str`)
+* list.tpl
+    * `title`
+    * `disp_login_state`
+    * `add_pageID`
+    * `search_key`
+    * `count`
+    * `links`
+    * `data`
+    * (`debug_str`)
+* login.tpl
+    * `title`
+    * `mode`
+    * `auth_error_mess`
+    * (`debug_str`)
+* top.tpl
+    * `title`
+    * `disp_login_state`
+    * `add_pageID`
+    * (`debug_str`)
+    
