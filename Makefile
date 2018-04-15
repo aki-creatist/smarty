@@ -1,4 +1,6 @@
 init:
+	rm -rf project/php_libs/vendor
+	rm -rf Pager
 
 	#郵便局のHPからken_all.zipをダウンロード
 	wget http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip
@@ -19,5 +21,5 @@ init:
 	#Pager
 	git clone git@github.com:pear/Pager.git
 	sed -ie "s/Pager\/Common.php/Common.php/g" Pager/Pager/Jumping.php
-	cp -R Pager/Pager project/php_libs/class/controller/base
+	cp -R Pager/Pager project/php_libs/controller/base/
 	rm -rf Pager
