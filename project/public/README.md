@@ -4,9 +4,9 @@
 
 * ${DIR}/index.php
     * 会員または未登録のユーザーがアクセス
-* premember.php
+* member/premember.php
     * 登録中の会員がアクセス
-* system.php
+* system/system.php
     * 管理者がアクセスする
 
 ```php
