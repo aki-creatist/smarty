@@ -43,3 +43,17 @@ docker exec mysql mysql -uroot -ppass -e 'DESC project.zipcode'
 docker exec mysql mysql -uroot -ppass -e 'DESC project.member_traffics'
 docker exec mysql mysql -uroot -ppass -e 'DESC project.member_zipcode'
 ```
+
+| ファイル名 | クラス名 | 説明 |
+|:----|:----|:----|
+| Auth.php | Auth | 認証用クラス |
+| BaseController.php | BaseController | コントローラの基底クラス |
+| BaseModel.php | BaseModel | モデルの基底クラス |
+| KenController.php | KenController | 未使用 |
+| KenModel.php | KenModel | 県名を取り出す機能のみ |
+| MemberController.php | MemberController | 会員システムの各機能。会員と非会員の振り分け |
+| MemberModel.php | MemberModel | 会員データの検索・登録・更新・削除 |
+| PrememberController.php | PrememberController | メールアドレスの確認処理 |
+| PrememberModel.php | PrememberModel | 会員データの検索・登録・削除 |
+| SystemController.php | SystemController | MemberControllerを利用した管理機能 |
+| SystemModel.php | SystemModel | 管理者データの検索機能のみ |
