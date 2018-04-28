@@ -55,8 +55,8 @@ class AuthController extends Database
 
     public function checkPW($password, $hashed_password)
     {
-        $hash = crypt($password, $hashed_password);
-        if ($hash == $hashed_password) {
+        $hash = crypt($password, $hashed_password); //パスワードとハッシュ値を引数として渡す - ハッシュアルゴリズムが伝わり、ハッシュ値を比較可能
+        if ($hash == $hashed_password) {            //一致したらtrueが返る
             return true;
         } else {
             return false;
