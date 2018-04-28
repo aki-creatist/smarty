@@ -266,9 +266,6 @@ class MembersController extends BaseController
     public function CreateCompleteBySystem($user)
     {
         $this->database->createMemberFromSystem($user);
-//        $this->database->createUser($user);
-//        $this->MemberPostcode->createMemberPostcode($user);
-//        $this->MemberTraffic->createMemberTraffic($user);
     }
     /**
      * 登録完了メッセージを取得 - 一般ユーザの場合は仮登録リンクを生成する
@@ -277,12 +274,11 @@ class MembersController extends BaseController
     {
         $message = "メール本文に記載されているURLにアクセスして登録を完了してください。<BR>";
         $link = "premember.php?username=" . $user['username'] . "&link_pass=". $user['link_pass'];
-        $message .= "<a href=$link>リンク</a>";
+        $message .= "<a href=$link>リンク</a>"; //メール本文
         return $message;
     }
     /**
      * 更新完了画面の表示
-     *
      */
     public function screenUpdateComplete($user)
     {
@@ -332,7 +328,7 @@ class MembersController extends BaseController
             $user['zip2'],
             $user['address']
             ) = $this->MemberPostcode->getMemberPostcode($user['id']);
-//        var_dump($user);
+
         $user['traffic'] = $this->MemberTraffic->getMemberTraffic($user['id']);
 
         return $user;
