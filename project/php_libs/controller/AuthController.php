@@ -65,8 +65,8 @@ class AuthController extends Database
 
     public function authOK($userdata)
     {
-        session_regenerate_id(true);
-        $_SESSION[$this->getAuthName()] = $userdata;
+        session_regenerate_id(true);                 //セッション＋IDを再発行する - 引数にtrueを指定すると関連するクッキーも削除
+        $_SESSION[$this->getAuthName()] = $userdata; //セッションIDを再生後、セッション変数に認証情報を保存
     }
 
     public function authNG()
