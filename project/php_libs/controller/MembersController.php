@@ -20,7 +20,7 @@ class MembersController extends BaseController
         $this->MemberTraffic = new MemberTraffic();
 
         $this->is_system = $flg;
-        if ($this->is_system) {
+        if ($this->is_system) {                        //管理画面であるかどうかの設定
             $this->auth->setAuthName(_SYSTEM_AUTHINFO);
             $this->sess->setSessName(_SYSTEM_SESSNAME);
         } else {
@@ -30,7 +30,7 @@ class MembersController extends BaseController
         $this->sess->start();
 
         if (isset($_REQUEST['mode'])) {
-            $this->mode = $_REQUEST['mode'];
+            $this->mode = $_REQUEST['mode'];           //$_REQUESTは GET と POST で送信された両方の値を参照可能
         }
         if (isset($_REQUEST['action'])) {
             $this->action = $_GET['action'];
