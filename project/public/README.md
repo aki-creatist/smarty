@@ -5,7 +5,7 @@
 * ${DIR}/index.php
     * 会員または未登録のユーザーがアクセス
 * member/premember.php
-    * 登録中の会員がアクセス
+    * 登録途中のユーザがメールで送信されたリンクをクリックして行う
 * system/system.php
     * 管理者がアクセスする
 
