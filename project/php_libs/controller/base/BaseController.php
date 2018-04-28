@@ -11,7 +11,6 @@ class BaseController
         // Smarty関連ディレクトリの設定
         $this->view->setTemplateDir(_SMARTY_TEMPLATES_DIR . $dir)
             ->setCompileDir(_SMARTY_TEMPLATES_C_DIR);
-//        var_dump($_POST);
     }
 
     // フォームと変数を読み込んでテンプレートに組み込んで表示
