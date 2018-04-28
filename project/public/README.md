@@ -1,11 +1,17 @@
-# view
+## 起点ファイル
 
-## viewに渡す値
+### index.phpの実行
 
-### contents
+* ${DIR}/index.php
+    * 会員または未登録のユーザーがアクセス
+* premember.php
+    * 登録中の会員がアクセス
+* system.php
+    * 管理者がアクセスする
 
-
-
-### members
-
-### systems
+```php
+<?php
+require_once '../../php_libs/init.php';
+$controller = new ${機能名}Controller();
+${名前空間}\run($controller);
+```
