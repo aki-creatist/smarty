@@ -55,7 +55,7 @@ class MembersController extends BaseController
     {
         $user = $this->auth->getUser($_POST['username']);
         if (!empty($user['password']) &&
-            $this->auth->checkPW($_POST['password'], $user['password'])) {
+            $this->auth->checkPW($_POST['password'], $user['password'])) { //入力されたPWとDBから取得したPWを比較
             $this->auth->authOK($user);
             $this->top();
         } else {
