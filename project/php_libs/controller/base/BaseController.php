@@ -3,7 +3,7 @@
 class BaseController
 {
     /**
-     * Smarty
+     * ビュークラス(Smarty) の準備
      */
     public function viewInitialize($dir)
     {
