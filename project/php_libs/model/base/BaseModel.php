@@ -20,7 +20,9 @@ class BaseModel
                     break;
             }
             $this->pdo = new PDO($dsn, USER, PASS);
+            //エラー情報を取得するための属性の設定
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            //プリペアドステートメントを利用可能にする
             $this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
             $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
