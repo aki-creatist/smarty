@@ -4,6 +4,7 @@
 #jenkinsで以下のjobを実行
 http://localhost:8099/job/provisioning/
 
+cd app/
 make init
 
 cd laradock
