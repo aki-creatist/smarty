@@ -4,6 +4,7 @@
 cd app
 make init
 cd laradock
+rm -rf adminer aerospike aws caddy certbot DOCUMENTATION elasticsearch grafana haproxy hhvm kibana laravel-echo-server maildev mailhog memcached mariadb minio mongo mssql neo4j percona pgadmin postgres postgres-postgis rabbitmq rethinkdb solr varnish
 docker-compose up -d nginx mysql redis beanstalkd
 ```
 
