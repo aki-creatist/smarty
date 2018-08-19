@@ -9,7 +9,34 @@ make init
 git clone --depth=1 -b v6.0.1 https://github.com/LaraDock/laradock.git
 
 cd laradock
-rm -rf adminer aerospike aws caddy certbot DOCUMENTATION elasticsearch grafana haproxy hhvm kibana laravel-echo-server maildev mailhog memcached mariadb minio mongo mssql neo4j percona pgadmin postgres postgres-postgis rabbitmq rethinkdb solr varnish
+
+FILE=docker-compose.yml
+sed -ie 's/}\/mysql:\/var\/lib\/mysql/}\/mysql:\/var\/lib\/mysql-files/g' ${FILE}
+sed -ie 's/mysql\/docker-entrypoint-/database\//g' ${FILE}
+
+sed -ie 's/~\/.laradock\/data/.\/database/g' ${FILE}
+sed -ie 's/UTC/JST-9/g' ${FILE}
+sed -ie 's/MYSQL_VERSION=latest/MYSQL_VERSION=5.7/g' ${FILE}
+sed -ie 's/MYSQL_DATABASE=default/MYSQL_DATABASE=project/g' ${FILE}
+sed -ie 's/MYSQL_USER=default/MYSQL_USER=user/g' ${FILE}
+sed -ie 's/MYSQL_PASSWORD=secret/MYSQL_PASSWORD=pass/g' ${FILE}
+sed -ie 's/MYSQL_ROOT_PASSWORD=root/MYSQL_ROOT_PASSWORD=pass/g' ${FILE}
+
+echo "DB_HOST=mysql" >> ${FILE}
+echo "REDIS_HOST=redis" >> ${FILE}
+echo "QUEUE_HOST=beanstalkd" >> ${FILE}
+
+FILE=mysql/my.cnf
+echo "character-set-server=utf8" >>${FILE}
+echo "[client]" >>${FILE}
+echo "default-character-set=utf8" >>${FILE}
+
+rm -rf .git
+
+cd ..
+make init
+
+cd laradock
 docker-compose up -d nginx mysql redis beanstalkd
 ```
 
