@@ -1,41 +1,9 @@
 # Smartyを利用したサンプルページ
 
 ```bash
-#app/を作成して移動
-mkdir app && cd $_
-git clone git@github.com:aki-creatist/smarty.git
+#jenkinsで以下のjobを実行
+http://localhost:8099/job/provisioning/
 
-#タグを指定してクローン(最新版はうまくいかないため)
-git clone --depth=1 -b v6.0.1 https://github.com/LaraDock/laradock.git
-
-cd laradock
-
-FILE=docker-compose.yml
-sed -ie 's/}\/mysql:\/var\/lib\/mysql/}\/mysql:\/var\/lib\/mysql-files/g' ${FILE}
-sed -ie 's/mysql\/docker-entrypoint-/database\//g' ${FILE}
-
-cp env-example .env
-FILE=.env
-sed -ie 's/~\/.laradock\/data/.\/database/g' ${FILE}
-sed -ie 's/UTC/JST-9/g' ${FILE}
-sed -ie 's/MYSQL_VERSION=latest/MYSQL_VERSION=5.7/g' ${FILE}
-sed -ie 's/MYSQL_DATABASE=default/MYSQL_DATABASE=project/g' ${FILE}
-sed -ie 's/MYSQL_USER=default/MYSQL_USER=user/g' ${FILE}
-sed -ie 's/MYSQL_PASSWORD=secret/MYSQL_PASSWORD=pass/g' ${FILE}
-sed -ie 's/MYSQL_ROOT_PASSWORD=root/MYSQL_ROOT_PASSWORD=pass/g' ${FILE}
-
-echo "DB_HOST=mysql" >> ${FILE}
-echo "REDIS_HOST=redis" >> ${FILE}
-echo "QUEUE_HOST=beanstalkd" >> ${FILE}
-
-FILE=mysql/my.cnf
-echo "character-set-server=utf8" >>${FILE}
-echo "[client]" >>${FILE}
-echo "default-character-set=utf8" >>${FILE}
-
-rm -rf .git
-
-cd ..
 make init
 
 cd laradock
