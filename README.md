@@ -3,7 +3,7 @@
 ```bash
 #app/を作成して移動
 mkdir app && cd $_
-make init
+git clone git@github.com:aki-creatist/smarty.git
 
 #タグを指定してクローン(最新版はうまくいかないため)
 git clone --depth=1 -b v6.0.1 https://github.com/LaraDock/laradock.git
