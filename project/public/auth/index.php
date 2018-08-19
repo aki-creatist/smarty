@@ -1,6 +1,5 @@
 <?php
 require_once '../../config.php';
-//require_once './Database.class.php';
 require_once '../../php_libs/model/base/BaseModel.php';
 require_once '../../php_libs/model/base/Database.php';
 

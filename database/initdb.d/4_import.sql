@@ -136,4 +136,3 @@ FIELDS
   username,
   password
 );
-
