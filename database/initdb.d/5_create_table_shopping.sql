@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `project`.`carts` (
     customer_no int unsigned not null,
     item_id int unsigned not null,
     num tinyint(1) unsigned not null default 1,
-    delete_flg tinyint(1) unsigned not null default 0,,
+    delete_flg tinyint(1) unsigned not null default 0,
     primary key( id ),
     index crt_idx( customer_no, delete_flg )
 );
