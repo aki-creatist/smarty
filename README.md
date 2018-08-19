@@ -14,6 +14,8 @@ FILE=docker-compose.yml
 sed -ie 's/}\/mysql:\/var\/lib\/mysql/}\/mysql:\/var\/lib\/mysql-files/g' ${FILE}
 sed -ie 's/mysql\/docker-entrypoint-/database\//g' ${FILE}
 
+cp env-example .env
+FILE=.env
 sed -ie 's/~\/.laradock\/data/.\/database/g' ${FILE}
 sed -ie 's/UTC/JST-9/g' ${FILE}
 sed -ie 's/MYSQL_VERSION=latest/MYSQL_VERSION=5.7/g' ${FILE}
