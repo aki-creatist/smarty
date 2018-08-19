@@ -54,6 +54,7 @@ docker-compose up -d nginx mysql redis beanstalkd
 
 ```bash
 MYSQL=laradock_mysql_1
+docker exec ${MYSQL} ls /var/lib/mysql-files
 docker exec ${MYSQL} mysql -uroot -ppass -Dproject -e 'SHOW TABLES;'
 
 #Docker起動時に初期データが投入されたことを確認
