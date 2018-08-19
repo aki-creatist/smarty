@@ -1,8 +1,13 @@
 # Smartyを利用したサンプルページ
 
 ```bash
-cd app
+#app/を作成して移動
+mkdir app && cd $_
 make init
+
+#タグを指定してクローン(最新版はうまくいかないため)
+git clone --depth=1 -b v6.0.1 https://github.com/LaraDock/laradock.git
+
 cd laradock
 rm -rf adminer aerospike aws caddy certbot DOCUMENTATION elasticsearch grafana haproxy hhvm kibana laravel-echo-server maildev mailhog memcached mariadb minio mongo mssql neo4j percona pgadmin postgres postgres-postgis rabbitmq rethinkdb solr varnish
 docker-compose up -d nginx mysql redis beanstalkd
