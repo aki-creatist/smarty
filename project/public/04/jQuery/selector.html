@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>javascript</title>
+    <script type="text/javascript"src="../javascript/jquery-3.2.1.min.js"></script>
+    <script src="selector.js"></script>
+</head>
+
+<style>
+    #area {
+        background-color:#ee82ee;
+        width:50px;
+    }
+</style>
+<body>
+
+<h4>要素名で指定するテスト</h4>
+
+<script>
+    $(function(){
+        $('h5').css('color', 'blue'); // h5タグを紫色にする
+    });
+</script>
+
+<h5>リンクボタンを紫色にするテスト</h5>
+
+<hr>
+
+<h4>クラスで指定するテスト</h4>
+<script>
+    $(function(){
+        $('.one_point').css('color', 'pink');
+    });
+</script>
+<p class="one_point">一箇所にのみ効果を与える</p>
+
+<hr>
+
+<h4>ある要素の配下を指定するテスト</h4>
+
+<script>
+    $(function(){
+        $('#env a').css('background-color', '#fcf'); // idがenvであるタグの内側のaタグを紫にする
+    });
+</script>
+
+<div id="env">
+    [<a href="#">リンク</a>]
+</div>
+
+<hr>
+
+<h4>ある要素の階層の直下の要素を指定するテスト</h4>
+
+<script>
+    // 直下を指定
+    $(function() {
+        $('#test > a').css('background-color', '#90F');
+    });
+</script>
+
+<div id="test">
+    <a href="#">id=test の直下</a><br>
+    <p><a href="#">id=testの直下のpタグの内側</a></p>
+</div>
+
+<hr>
+
+<h4>ある要素の次の要素を指定するテスト</h4>
+<script>
+    // 次を指定
+    $(function(){
+        $('#java + li').css('background-color', '#fcf');
+    });
+</script>
+<ol>
+    <li id="html">html</li>
+    <li id="java">java</li>
+    <li id="php">php</li>
+</ol>
+
+<hr>
+
+<h4>ある要素以降の全ての要素を取り出すテスト</h4>
+
+<script>
+    $(function() {
+        $('#xm ~ li').css('background-color', '#fcf');
+    });
+</script>
+
+<ol>
+    <li id="ruby">html</li>
+    <li id="xm">xml</li>
+    <li id="perl">perl</li>
+    <li id="python">python</li>
+</ol>
+
+<hr>
+
+<div id="write"></div>
+<div id="area">hoge</div>
+</body>
+</html>

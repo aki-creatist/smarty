@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <title>イベント基礎</title>
+    <style>
+        #list {
+            margin: 0px;
+            padding: 0px;
+        }
+        #list li {
+            margin: 2px;
+            height: 40px;
+            list-style-type: none;
+            float: left;
+        }
+        #list img {
+            width: 55px;
+            height: 40px;
+        }
+        hr {
+            clear : both;
+        }
+        #big {
+            width: 315px;
+            height: 235px;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    $(function() {
+        $('#big').attr('src', $('#list img:first-child').attr('src'));
+        $('#list img').click(function() {
+            $('#big').attr('src', $(this).attr('src'));
+        });
+    });
+</script>
+
+<ul id="list">
+    <li>
+        <img src="image/tamanegi.jpg" height="167" width="250"/>
+    </li>
+    <li>
+        <img src="image/pi-man.jpg" height="171" width="250"/>
+    </li>
+    <li>
+        <img src="image/ninjin.jpg" height="166" width="250"/>
+    </li>
+    <li>
+        <img src="image/nasu.jpg" height="162" width="250"/>
+    </li>
+</ul>
+<hr />
+
+<p><img id="big" src="image/mikan.jpg" height="188" width="250"/></p>
+
+</body>
+</html>

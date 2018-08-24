@@ -1,0 +1,278 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        #wrapper{width: 600px;}
+        textarea{width: 370px;}
+        dt{background: lightblue; padding:4px; margin-top:8px;}
+        dd{margin:2px;}
+        span{color:red;}
+    </style>
+    <script>
+        window.addEventListener('load',
+            function(event)
+            {
+                var elem = document.getElementById('family_name');
+                elem.addEventListener('keyup', nameCheck, false);
+                var elem = document.getElementById('first_name');
+                elem.addEventListener('keyup', nameCheck, false);
+
+                var elem = document.getElementById('gender1');
+                elem.addEventListener('focus', checkSelectRadio, false);
+
+                var elem = document.getElementById('year');
+                elem.addEventListener('focus', checkSelectPulldown, false);
+
+                var elem = document.getElementById('zip1');
+                elem.addEventListener('keyup', zipCheck, false);
+                var elem = document.getElementById('zip2');
+                elem.addEventListener('keyup', zipCheck, false);
+
+                var elem = document.getElementById('mail');
+                elem.addEventListener('keyup', mailCheck, false);
+
+                var elem = document.getElementById('traffic');
+                elem.addEventListener('keyup', onButtonClick, false);
+
+            }
+            ,false);
+
+        var errors = [];
+        function nameCheck(event) 
+        {
+            var str = document.getElementById('family_name').value;
+            errors["family_name"] = document.getElementById('output_family_name');
+            if (str !== "") {
+                errors["family_name"].innerHTML = '';
+            } else {
+                errors["family_name"].innerHTML = 'お名前(氏)を入力してください';
+            }
+            var str2 = document.getElementById('first_name').value;
+            var regexp = /^$/;
+            errors["first_name"] = document.getElementById('output_first_name');
+            if (str2 !== "") {
+                errors["first_name"].innerHTML = '';
+            } else {
+                errors["first_name"].innerHTML = 'お名前(名)を入力してください';
+            }
+        }
+
+        function genderCheck(event)
+        {
+            var str = document.getElementByClass('gender').value;
+            //var regexp = /^$/;
+            errors["gender"] = document.getElementById('output_gender');
+            if (str !== "") {
+                errors["gender"].innerHTML = '';
+            } else {
+                errors["gender"].innerHTML = '半角英数字３桁で入力してください';
+            }
+        }
+
+        function zipCheck(event)
+        {
+            var str = document.getElementById('zip1').value;
+            var regexp = /^\d{3}$/;
+            errors["zip1"] = document.getElementById('output_zip1');
+            if (regexp.test(str)) {
+                errors["zip1"].innerHTML = '';
+            } else {
+                errors["zip1"].innerHTML = '半角英数字３桁で入力してください';
+            }
+            var str = document.getElementById('zip2').value;
+            var regexp = /^\d{4}$/;
+            errors["zip2"] = document.getElementById('output_zip2');
+            if (regexp.test(str)) {
+                errors["zip2"].innerHTML = '';
+            } else {
+                errors["zip2"].innerHTML = '半角英数字４桁で入力してください';
+            }
+        }
+
+        //追加
+        function mailCheck(event)
+        {
+            var str = document.getElementById('mail').value;
+            var regexp = /^[\w\-\.]+@[\w\-\.]+$/
+            errors["mail"] = document.getElementById('output_mail');
+            if (regexp.test(str)) {
+                errors["mail"].innerHTML = '';
+            } else {
+                errors["mail"].innerHTML = '正しいアドレスではありません';
+            }
+        }
+    </script>
+</head>
+
+<body>
+<div id="wrapper">
+    <h1>データを入力してください</h1>
+    <table>
+        <tr>
+            <th>お名前(氏名)<span class="red">*</span></th>
+            <td>
+                <input type="text" id="family_name" value="" />
+                <input type="text" id="first_name" value="" />
+                <br><span id="output_family_name"></span>
+                <br><span id="output_first_name"></span>
+            </td>
+        </tr>
+        <script type="text/javascript" language="javascript">
+            function onRadioButtonChange()
+            {
+                var check = document.getElementsByName('gender');
+                for (i = 0; i < check.length; i++) {
+                    if (check[i].checked) {
+                        check = true;
+                        break;
+                    }
+                }
+                var target = document.getElementById('output_gender');
+
+                if (check == true ) {
+                    target.innerHTML = '';
+                }
+            }
+
+            function checkSelectRadio()
+            {
+                var check1 = "";
+                if (check1 == false ) {
+                    var selected_flg = false;
+                }
+
+                var elm = document.getElementsByName('gender');
+                for (i = 0; i < elm.length; i++) {
+                    if (elm[i].checked) {
+                        selected_flg = true;
+                        break;
+                    }
+                }
+                output = document.getElementById('output_gender');
+
+                if (selected_flg == false) {
+                    output.innerHTML = '性別を選択してください';
+                }
+            }
+        </script>
+        <tr>
+            <th>性別<span class="red;">*</span></th>
+            <td>
+                <input type=radio id="gender1" name="gender" value=0 onchange="onRadioButtonChange();">男
+                <input type=radio id="gender2" name="gender" value=1 onchange="onRadioButtonChange();">女
+                <br><span id="output_gender"></span>
+            </td>
+        </tr>
+        <script>
+            function onPulldownChange()
+            {
+                var check = document.getElementsByName('year');
+                /*for (i = 0; i < check.length; i++) {
+                    if (check[i].checked) {*/
+                check = true;
+                //break;
+                //}
+                //}
+
+                var target = document.getElementById('output_year');
+
+                if (check == true ) {
+                    target.innerHTML = '';
+                }
+            }
+
+            function checkSelectPulldown() 
+            {
+                var check1 = "";
+                if (check1 == false ) {
+                    var selected_flg = false;
+                }
+                var elm = document.getElementsByName('year');
+                for (i = 0; i < elm.length; i++) {
+                    if (elm[i].checked) {
+                        selected_flg = true;
+                        break;
+                    }
+                }
+                output = document.getElementById('output_year');
+
+                if (selected_flg == false) {
+                    output.innerHTML = '年を選択してください';
+                }
+            }
+        </script>
+        <tr>
+            <th>生年月日<span class="red">*</span></th>
+            <td>
+                <select name="year" id="year" onchange="onPulldownChange();">
+                    <option selected value="">選択してね！</option>
+                    <option value="1900">1900</option>
+                </select>年
+
+                <select name='month'>
+                    <option selected>選択してね！</option>
+                    <option value="12" >12</option>
+                </select>月
+
+                <select name='day'>
+                    <option selected>選択してね！</option>
+                    <option value="1">1</option>
+                </select>日
+                <br><span id="output_year"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>郵便番号<span class="red">*</span></th>
+            <td>
+                <input type="text" value="" id="zip1" size="3" maxlength="3" /> -
+                <input type="text" value="" id="zip2" size="4" maxlength="4" />
+                <input type="button" id="address_search" value="ボタンに入る名称"/>
+                <br><span id="output_zip1"></span>
+                <br><span id="output_zip2"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>メールアドレス<span class="red">*</span></th>
+            <td>
+                <input type="text" id="mail" value="" size="40" />
+                <br><span id="output_mail"></span>
+            </td>
+        </tr>
+        <script>
+            function onCheckBoxChange()
+            {
+                var check = document.getElementsByName('traffic');
+
+                check = true;
+
+                var target = document.getElementById('output');
+
+                if (check == true ) {
+                    target.innerHTML = '';
+                }
+            }
+
+            function onButtonClick() 
+            {
+                check = document.getElementsByName('checkBox');
+
+                target = document.getElementById("output");
+                if (check == true) {
+                    target.innerHTML = "チェック項目1がチェックされています。<br/>";
+                } else {
+                    target.innerHTML = "最低一つの交通機関を選択してください";
+                }
+            }
+        </script>
+        <tr>
+            <th>交通手段<span class="red">*</span></th>
+            <td>
+                <input type="checkbox" id="traffic" name="checkBox" onclick="onCheckBoxChange();"/>徒歩
+                <br><span id="output"></span>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

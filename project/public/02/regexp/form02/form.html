@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <title>お問い合わせフォーム</title>
+    <script src="javascript.js"></script>
+    <script src="jquery.js"></script>
+    <style>
+        #error_summary {
+            color: #f00;
+            display: none;
+        }
+
+        .error_field {
+            background-color: #f9c;
+        }
+
+        .error_mark {
+            color: #f00;
+        }
+    </style>
+</head>
+
+<body>
+<form id="form">
+    <div class="field">
+        <label>お名前(氏)</label>：
+        <input type="text" id="family_name" size="20" class="valid required" />
+    </div>
+    <div class="field">
+        <label>お名前(名)</label>：
+        <input type="text" id="first_name" size="20" class="valid required" />
+    </div>
+    <div class="field">
+        <input type="submit" value="送信" />
+    </div>
+</form>
+
+<table border="1px">
+    <tr>
+        <th>言語</th>
+        <th>エラーメッセージの表示</th>
+    </tr>
+    <tr>
+        <td>PHP</td>
+        <td><?=$error_php;?></td>
+    </tr>
+    <tr>
+        <td>javascript</td>
+        <td>
+            <span id="javascript_family_name"></span>
+            <span id="javascript_first_name"></span>
+        </td>
+    </tr>
+    <tr>
+        <td>jquery</td>
+        <td><span class="jquery_error"></span> </td>
+    </tr>
+</table>
+</body>
+</html>

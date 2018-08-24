@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>インベント</title>
+</head>
+<body>
+<script>
+    // keydown〜keyupまでの実行プログラム
+    var keyDown = 0;
+    function Down() {
+        if(++keyDown%2) {
+            document.forms.chekey.d.value = "◇" ; }
+        else {
+            document.forms.chekey.d.value = "◆" ; } }
+    var keyPress = 0;
+    function Press() {
+        if(++keyPress%2) {
+            document.forms.chekey.p.value = "◇" ; }
+        else {
+            document.forms.chekey.p.value = "◆" ; } }
+    var keyUp = 0;
+    function Up() {
+        if(++keyUp%2) {
+            document.forms.chekey.u.value = "◇" ; }
+        else {
+            document.forms.chekey.u.value = "◆" ; } }
+</script>
+
+<form name="chekey" class="clear">
+    <table width="100%" border="1px">
+        <tr>
+            <th>イベントタイプ</th>
+            <th>プロパティ</th><th>イベントの意味</th><th>実例</th>
+        </tr>
+
+        <tr>
+            <td>blur</td>
+            <td>onlur</td>
+            <td>フォーカスを失った。<br>
+                (ボタンをクリックしてから別のところをクリックしてみましょう)</td>
+            <td><input type="button" onBlur="alert('blur')"></td>
+        </tr>
+
+        <tr>
+            <td>change</td>
+            <td>onchange</td>
+            <td>変更された。</td>
+            <td>
+                <select onChange="alert('onChange')">
+                    <option value="onChenge" selected="selected">onChange</option>
+                    <option value="test">test</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>click</td>
+            <td>onclick</td>
+            <td>クリックされた。</td>
+            <td><p onClick="alert('onClick')">クリック</p></td>
+        </tr>
+
+        <tr>
+            <td>contextmenu</td>
+            <td>oncontextmenu</td>
+            <td>右クリックされた。</td>
+            <td><div oncontextmenu="alert('ontextmenu')">右クリック</div></td>
+        </tr>
+
+        <tr>
+            <td>dblclick</td>
+            <td>ondblclick</td>
+            <td>ダブルクリックされた。</td>
+            <td onDblClick="alert('onDblClick')">ダブル</td>
+        </tr>
+
+        <tr>
+            <td>focus</td>
+            <td>onfocus</td><td>フォーカスを得た。</td>
+            <td>&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td>keydown</td>
+            <td>onkeydown</td>
+            <td>キーが押し下げられた。</td>
+            <td>
+                <input type="text" size="10" name="a"
+                       onkeydown="Down();" onkeyup="Up();" onkeypress="Press();"><br>
+                <textarea cols="2" rows="1" name="d"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>keypress</td>
+            <td>onkeypress</td>
+            <td>キーを押して放した。</td>
+            <td><textarea cols="2" rows="1" name="p"></textarea></td>
+        </tr>
+
+        <tr>
+            <td>keyup</td>
+            <td>onkeyup</td>
+            <td>キーが放された。</td>
+            <td><textarea cols="2" rows="1" name="u"></textarea></td>
+        </tr>
+
+        <tr>
+            <td>mousedown</td>
+            <td>onmousedown</td>
+            <td>マウスボタンが押し下げられた。</td>
+            <td onMouseDown="alert('onMouseDown')">マウスダウン</td>
+        </tr>
+
+        <tr>
+            <td>mousemove</td>
+            <td>onmousemove</td>
+            <td>マウスポインタが移動している。</td>
+            <td onMouseMove="alert('onMouseMove')">マウス移動</td>
+        </tr>
+
+        <tr>
+            <td>mouseout</td>
+            <td>onmouseout</td>
+            <td>マウスポインタが領域外に出た。</td>
+            <td onMouseOut="alert('onMouseOut')">領域外へ</td>
+        </tr>
+
+        <tr>
+            <td>mouseover</td>
+            <td>onmouseover</td>
+            <td>マウスポインタが領域内に入ってきた。</td>
+            <td onMouseOver="alert('onMouseOver')">領域内へ</td>
+        </tr>
+
+        <tr>
+            <td>mouseup</td>
+            <td>onmouseup</td>
+            <td>マウスボタンが放された。</td>
+            <td onMouseUp="alert('onMouseUp')">AA</td>
+        </tr>
+
+        <tr>
+            <td>resize</td>
+            <td>onresize</td>
+            <td>ウィンドウサイズが変更された。</td>
+            <td>画面サイズ変更</td>
+            <script>
+                /*function resize(){
+                    alert('onresize');
+                }
+                window.onresize = resize;*/
+            </script>
+        </tr>
+
+        <tr>
+            <td>scroll</td>
+            <td>onscroll</td>
+            <td>スクロールされた。</td>
+            <td>スクロール</td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

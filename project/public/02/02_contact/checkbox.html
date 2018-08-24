@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.addEventListener('load',
+            function(event) {
+                var elem = document.getElementById('traffic');
+                elem.addEventListener('keyup', onButtonClick, false);
+            }
+            ,false);
+
+        var errors = [];
+
+        function onCheckBoxChange()
+        {
+            var check = document.getElementsByName('traffic');
+
+            check = true;
+
+            var target = document.getElementById('output');
+
+            if (check == true) {
+                target.innerHTML = '';
+            }
+        }
+
+        function onButtonClick()
+        {
+            check = document.getElementsByName('checkBox');
+
+            target = document.getElementById("output");
+            if (check == true) {
+                target.innerHTML = "チェック項目1がチェックされています。<br/>";
+            } else {
+                target.innerHTML = "最低一つの交通機関を選択してください";
+            }
+        }
+    </script>
+</head>
+
+<body>
+<table>
+    <tr>
+        <th>交通手段<span class="red">*</span></th>
+        <td>
+            <input type="checkbox" id="traffic" name="checkBox" onclick="onCheckBoxChange();"/>徒歩
+            <br><span id="output"></span>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# 行頭に#がある行はコメントです。
+# 利用するディレクティブの#を外し、利用しないものは#を付ける
+
+# Basic認証に設定
+AuthType Basic
+# "Member Only"の文字列が表示される
+AuthName "Member Only"
+# パスワードファイルを絶対パスで指定
+# Windows
+#AuthUserFile C:/xampp/htdocs/.htpasswd
+# Mac
+AuthUserFile /var/www/.htpasswd
+# Linux
+#AuthUserFile /opt/lampp/htdocs/.htpasswd
+# ここでアクセスを許可する
+Require valid-user

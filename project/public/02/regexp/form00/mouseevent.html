@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <title>イベント</title>
+</head>
+<body>
+
+<h4>mouseenter/mouseleave(左)、mouseover/mouseout(右)</h4>
+<style>
+    #parent { height: 100px; width: 100px; margin-left: 100px; padding: 1px; border: 3px solid #000; float:left; }
+    #child { height: 50px; width: 50px; margin-left: 20px; padding: 1px; border: 2px solid #F00; }
+</style>
+
+<div id="parent">
+    親（parent)
+    <p id="child">
+        子（child）
+    </p>
+</div>
+
+<div class="result"></div>
+<script>
+    $(function() {
+        $('#parent')
+        // マウスポインターが画像に乗った時の動作
+            .mouseenter(function(e) {
+                console.log('mouseenter:' + e.target.id);
+            })
+            // マウスポインターが画像から外れた時の動作
+            .mouseleave(function(e) {
+                console.log('mouseleave:' + e.target.id);
+            });
+    });
+</script>
+
+<style>
+    #parent2 { height: 100px; width: 100px; margin-left: 100px; padding: 1px; border: 3px solid #000; float:left; }
+    #child2 { height: 50px; width: 50px; margin-left: 20px; padding: 	1px; border: 2px solid #F00; }
+</style>
+
+<div id="parent2">
+    親（parent)
+    <p id="child2">
+        子（child）
+    </p>
+</div>
+
+<div class="result"></div>
+<script>
+    $(function() {
+        $('#parent2')
+        // マウスポインターが画像に乗った時の動作
+            .mouseover(function(e) {
+                console.log('mouseenter:' + e.target.id);
+            })
+            // マウスポインターが画像から外れた時の動作
+            .mouseout(function(e) {
+                console.log('mouseleave:' + e.target.id);
+            });
+    });
+</script>
+
+</body>
+</html>

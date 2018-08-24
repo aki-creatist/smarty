@@ -1,0 +1,21 @@
+<h4>無名オブジェクト</h4>
+
+<script>
+    var prod_data = [
+        {name:'iPhone', price:86800},
+        {name:'iPad', price:53800}
+    ];
+
+    var row = 2;
+    document.write('<table border="1px">');
+    //見出し
+    document.write('<tr><th>製品名</th><th>単価</th></tr>');
+    //データ行
+    for (var i = 0; i < row; i++) {
+        document.write('<tr>');
+        document.write('<td>' + prod_data[i].name + '</td>');
+        document.write('<td>' + prod_data[i].price + '</td>');
+        document.write('</tr>');
+    }
+    document.write('</table>');
+</script>

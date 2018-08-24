@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>javascript</title>
+    <script src="sample.js"></script>
+</head>
+<body>
+
+<style>
+    .outer{width: 500px; text-align: center;}
+    .prod_list{text-align: center;}
+    #basket{width: 300px; margin: auto;}
+    .empty_basket{background: black; padding: 8px;}
+    .filled_basket{background: red; padding: 8px;}
+</style>
+
+<script>
+    window.onload = fillBasket;
+    function fillBasket()
+    {
+        var elem = document.getElementById('basket');
+        elem.className = 'filled_basket';
+        elem.innerHTML = '<p>商品が入る</p>'; // div要素の子としてp要素とテキストが追加される
+    }
+</script>
+
+<div class="outer">
+    <form>
+        <div id="basket" class="empty_basket">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

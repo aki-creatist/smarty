@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>クリックイベント</title>
+    <style>
+        .outer{width: 328px; text-align: center;}
+        .prod_list{text-align: center;}
+        .prod_list{list-style-type: none; background: gold; padding: 4px;}
+        li{text-align: left;}
+        [type = "button"], [type = "submit"]{margin: 16px;}
+
+        #cart{width: 300px; margin: auto;}
+
+        .empty{background: black; padding: 8px;}
+        .filled{background: pink; padding: 8px;}
+    </style>
+    <script src="click_event.js"></script>
+</head>
+<body>
+<!-- idは数字の2で統一 -->
+<div class="outer">
+    <form class="clear">
+        <input type="button" id="btn_addprod" value="▼add">
+        <div id="cart" class="empty">
+        </div>
+    </form>
+</div>
+</body>
+</html>

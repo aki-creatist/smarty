@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <title>入力検証</title>
+</head>
+<body>
+<script>
+    $(function() {
+        var msgs;
+        var setError = function(elem, msg) {
+            msgs.push('<li>' + msg + '</li>');
+            $(elem)
+                .addClass('error_field')
+                .after('<span class="error_mark">*</span>');
+        };
+
+        $('#fm').submit(function(e) {
+            msgs = [];
+            $('.error_mark', this).remove();
+            $('.valid', this)
+                .removeClass('error_field')
+                .filter('.inarray')
+                .each(function() {
+                    var opts = $(this).data('option').split(' ');
+                    if ($.inArray($(this).val(), opts) === -1) {
+                        setError(this,
+                            $(this).prev('label').text() + 'は' +
+                            opts.toString() + 'のいずれかで入力してください。');
+                    }
+                })
+
+            if (msgs.length === 0) {
+                $('#error_summary').css('display', 'none');
+            } else {
+                $('#error_summary')
+                    .css('display', 'block')
+                    .html(msgs.join(''));
+                e.preventDefault();
+            }
+        });
+    });
+</script>
+
+<ul id="error_summary"></ul>
+<form id="fm" class="clear">
+    <div class="field">
+    <label for="belong">クラス</label>
+    <input type="text" id="publish" class="valid inarray"
+    data-option="3-A 3-B 3-C" />
+    </div>
+
+    <div class="field">
+        <input type="submit" value="送信" />
+    </div>
+</form>
+</body>
+</html>

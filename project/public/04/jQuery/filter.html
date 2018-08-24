@@ -1,0 +1,461 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>javascript</title>
+    <script type="text/javascript"src="../javascript/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+
+<h3>子要素の内容によって、親を抽出</h3>
+
+<script>
+    $(function() {
+        $('.entry li:first').css('background-color', 'Lime');
+        $('.entry li:last').css('background-color', 'Yellow');
+    });
+</script>
+
+<h4>最初と最後をフィルタリング</h4>
+<ul class="entry">
+    <li>HTML</li>
+    <li>XML</li>
+    <li>JavaScript</li>
+    <li>PHP</li>
+</ul>
+
+<hr>
+
+<h3>奇数と偶数をフィルタリング</h3>
+
+<script>
+    $(function() {
+        $('.even li:even').css('background-color', 'Lime');
+        $('.odd li:odd').css('background-color', 'Yellow');
+    });
+</script>
+
+<h4>奇数</h4>
+<ul class="even">
+    <li>HTML</li>
+    <li>XML</li>
+    <li>JavaScript</li>
+    <li>PHP</li>
+</ul>
+
+<h4>偶数</h4>
+<ul class="odd">
+    <li>HTML／CSS</li>
+    <li>XML2</li>
+    <li>JavaScript2</li>
+    <li>PHP2</li>
+</ul>
+
+<hr>
+
+<h3>インデックスで指定</h3>
+
+<h4>n番目をフィルター</h4>
+
+<script>
+    // 0番目から数える
+    $(function() {
+        $('#equal li:eq(2)').css('background-color', 'Lime');
+    });
+</script>
+
+<ul id="equal">
+    <li>HTML</li>
+    <li>XML</li>
+    <li>JavaScript</li>
+    <li>PHP</li>
+</ul>
+
+<hr>
+
+<h4>n番目より前/後</h4>
+
+<script>
+    $(function() {
+        $('#than li:lt(2)').css('background-color', '#EBF4F7');
+        $('#than li:gt(2)').css('background-color', '#FFD0D2');
+    });
+</script>
+
+<ul id="than">
+    <li>HTML</li>
+    <li>XML</li>
+    <li>JavaScript</li>
+    <li>PHP</li>
+</ul>
+
+<hr>
+
+<h4>指定の文字列で絞り込み</h4>
+
+<script>
+    $(function() {
+        $('#cont li:contains("XML")').css('background-color', '#EBF4F7');
+    });
+</script>
+
+<ul id="cont">
+    <li>HTML</li>
+    <li>XML</li>
+    <li>JavaScript</li>
+    <li>PHP</li>
+</ul>
+
+<hr>
+
+<h4>内容を持つ/持たないで絞り込み</h4>
+
+<script>
+    $(function(){
+        $('#day1 td:parent').css('background-color','#FF9');
+    });
+</script>
+
+<script>
+    $(function(){
+        $('#day1 td:empty').css('background-color','pink');
+    });
+</script>
+
+<table id="day1" border="1px">
+    <tr>
+        <th>資料/プレ講義説明書</th>
+        <td>文字コードについて</td>
+    </tr>
+    <tr>
+        <th>休憩</th>
+        <td></td>
+    </tr>
+    <tr>
+        <th>変数・ifの基本的な条件分岐</th>
+        <td>contact/if.php</td>
+    </tr>
+</table>
+
+<hr>
+
+<h4>指定した要素に合致する子要素を含んだ要素</h4>
+
+<script>
+    $(function() {
+        $('p:has(cite)').css('background-color', 'Yellow');
+    });
+</script>
+
+<p>イベント情報は<a href="#">こちら</a>から入手できます。</p>
+<p>詳しくは<cite>プログラミング学習</cite>を参照ください。</p>
+
+<hr>
+
+<h3>子要素を抽出</h3>
+
+<h4>先頭、または末尾の子要素を取り出す</h4>
+
+<script>
+    $(function() {
+        $('.has li:first-child').css('color', 'Red');
+        $('.has li:last-child').css('color', 'Blue');
+    });
+</script>
+
+<ul class="has">
+    <li>HTML</li>
+    <li>XML</li>
+    <li>JavaScript</li>
+    <li>PHP</li>
+</ul>
+
+<ul class="has">
+    <li>HTML／CSS</li>
+    <li>XML2</li>
+    <li>JavaScript2</li>
+    <li>PHP2</li>
+</ul>
+
+<hr>
+
+<h4>childなしと比較</h4>
+
+<script>
+    $(function() {
+        $('.differ li:first').css('color', 'Red');
+        $('.differ li:last').css('color', 'Blue');
+    });
+</script>
+
+<ul class="differ">
+    <li>HTML</li>
+    <li>XML</li>
+    <li>JavaScript</li>
+    <li>PHP</li>
+</ul>
+
+<ul class="differ">
+    <li>HTML／CSS</li>
+    <li>XML2</li>
+    <li>JavaScript2</li>
+    <li>PHP2</li>
+</ul>
+
+<hr>
+
+<h4>n個ごとに子要素を取り出す</h4>
+
+<p>３個おきに抽出する例</p>
+
+<script>
+    $(function(){
+        $('#skills > li:nth-child(3n)').css('background-color','#0FF');
+    });
+</script>
+
+<ul id="skills">
+    <li>スワイプス</li>
+    <li>ウィンドミル</li>
+    <li>シフト</li>
+    <li>ダブルシフト</li>
+    <li>フリップ</li>
+    <li>ドンキー</li>
+    <li>チェア</li>
+    <li>エアチェア</li>
+    <li>フリーズ</li>
+</ul>
+
+<hr>
+
+<p>３で割ったときに１余る番目を指定する例</p>
+
+<script>
+    $(function(){
+        $('#skills_2 > li:nth-child(3n+1)').css('background-color','#0FF');
+    });
+</script>
+
+<ul id="skills_2">
+    <li>スワイプス</li>
+    <li>ウィンドミル</li>
+    <li>シフト</li>
+    <li>ダブルシフト</li>
+    <li>フリップ</li>
+    <li>ドンキー</li>
+    <li>チェア</li>
+    <li>エアチェア</li>
+    <li>フリーズ</li>
+</ul>
+
+<hr>
+
+<p>偶数のみ指定する例</p>
+<script>
+    $(function(){
+        $('#skills_3 > li:nth-child(odd)').css('background-color','#0FF');
+    });
+</script>
+
+<ul id="skills_3">
+    <li>スワイプス</li>
+    <li>ウィンドミル</li>
+    <li>シフト</li>
+    <li>ダブルシフト</li>
+    <li>フリップ</li>
+    <li>ドンキー</li>
+    <li>チェア</li>
+    <li>エアチェア</li>
+    <li>フリーズ</li>
+</ul>
+
+<hr>
+
+<p>固定値(4)で指定する例</p>
+<script>
+    $(function(){
+        $('#skills_4 > li:nth-child(4)').css('background-color','#0FF');
+    });
+</script>
+
+<ul id="skills_4">
+    <li>スワイプス</li>
+    <li>ウィンドミル</li>
+    <li>シフト</li>
+    <li>ダブルシフト</li>
+    <li>フリップ</li>
+    <li>ドンキー</li>
+    <li>チェア</li>
+    <li>エアチェア</li>
+    <li>フリーズ</li>
+</ul>
+
+<hr>
+
+<h4>唯一の子要素であるものだけを取り出す</h4>
+<p>&lt;p&gt;要素の配下に&lt;img&gt;要素が一つだけある場合に、その画像の枠を付与する</p>
+
+<script>
+    $(function(){
+        $('p > img:only-child').css('border','solid 5px Lime');
+    });
+</script>
+
+<p><img src="images/budou.jpg" width="10%"/></p>
+
+<p>
+    <img src="images/cola.jpg" width="10%"/>
+    <img src="images/ichigo.jpg" width="10%"/>
+</p>
+
+<hr>
+
+<p>本体テキストは子要素として見なされないため、&lt;img&gt;タグしか存在しない扱いになる</p>
+<p>
+    <img src="images/karupisu.jpg" width="10%"/>
+    カルピスの写真
+</p>
+
+<hr>
+
+<h3>属性値の値によって絞り込む</h3>
+
+<h4>特定の属性を持つ要素だけを取り出す</h4>
+<script>
+    $(function() {
+        $('a[target]').css('background-color', 'Yellow');
+    });
+</script>
+
+<ul>
+    <li>
+        <a href="http://jp.louisvuitton.com/jpn-jp/homepage" target="other">LOUIS VUITTON</a>
+    </li>
+    <li>
+        <a href="http://www.bottegaveneta.com/jp/">BOTTEGA VENETA</a>
+    </li>
+    <li>
+        <a href="http://www.uniqlo.com/jp/">UNIQRO</a>
+    </li>
+</ul>
+
+<hr>
+
+<h4>属性がある値に等しい/等しくない要素だけを取り出す</h4>
+
+<p>target属性が"_blank"である&lt;a&gt;要素の背景を黄色にする</p>
+
+<script type="text/javascript">
+    $(function() {
+        $('a[target = "_blank"]').css('background-color', 'Yellow');
+    });
+</script>
+<ul>
+    <li>
+        <a href="http://jp.louisvuitton.com/jpn-jp/homepage">LOUIS VUITTON</a>
+    </li>
+    <li>
+        <a href="http://www.bottegaveneta.com/jp/" target="_blank">BOTTEGA VENETA</a>
+    </li>
+    <li>
+        <a href="http://www.uniqlo.com/jp/">UNIQRO</a>
+    </li>
+</ul>
+
+<hr>
+
+<h4>属性の値が部分的に一致する要素だけを取り出す</h4>
+
+<script>
+    $(function() {
+        $('#reg a[href $= "jp/"]').css('background-color', 'Yellow');
+    });
+</script>
+<ul id="reg">
+    <li><a href="http://jp.louisvuitton.com/jpn-jp/homepage">
+        LOUIS VUITTON</a></li>
+    <li><a href="http://www.bottegaveneta.com/jp/">
+        BOTTEGA VENETA</a></li>
+    <li><a href="http://www.uniqlo.com/jp/">
+        UNIQRO</a></li>
+</ul>
+
+<hr>
+
+<h4>複数の附属生フィルターを組み合わせる</h4>
+
+<p>href属性が「http://〜」で始まり、かつ、target属性が含まれる&lt;a&gt;要素の背景を黄色にする。</p>
+
+<script>
+    $(function() {
+        $('#group a[href ^= "http://"][target]').css('background-color', 'Yellow');
+    });
+</script>
+<ul id="group">
+    <li><a href="http://jp.louisvuitton.com/jpn-jp/homepage" target="_blank">
+        LOUIS VUITTON</a></li>
+    <li><a href="http://www.bottegaveneta.com/jp/">
+        BOTTEGA VENETA</a></li>
+    <li><a href="http://www.uniqlo.com/jp/">
+        UNIQRO</a></li>
+</ul>
+
+<hr>
+
+<h3>その他のフィルター</h3>
+
+<h4>見出しだけ取り出す</h4>
+
+<script>
+    $(function() {
+        //$(':header').css('background-color', '#CCCBFF'); // タイトル全てに帯をつける
+    });
+</script>
+
+<p>全てのheaderに背景色をつける(コメントアウトを外してください)</p>
+
+<hr>
+
+<h4>セレクターに合致しない要素を取り出す</h4>
+
+<script type="text/javascript">
+    $(function() {
+        $('#not a:not([target="_blank"])').css('background-color', 'Yellow');
+    });
+</script>
+
+<ul id="not">
+    <li><a href="http://jp.louisvuitton.com/jpn-jp/homepage" target="_blank">
+        LOUIS VUITTON</a></li>
+    <li><a href="http://www.bottegaveneta.com/jp/" target="_blank">
+        BOTTEGA VENETA</a></li>
+    <li><a href="http://www.uniqlo.com/jp/">
+        UNIQRO</a></li>
+</ul>
+
+<hr>
+
+<h4>状態でアクセスすべき要素を絞り込む</h4>
+
+<p>以下は、チェック状態にあるラジオボタンについて、そのラベルの背景色を黄緑色にする例です。<br>
+    (ページを開いた時点での状態を確認していますので、チェックを変えても色は変更されません。)</p>
+
+<script type="text/javascript">
+    $(function() {
+        $('label:has(:checked)').css('background-color', 'Lime');
+    });
+</script>
+<form>
+    <p>性別：
+        <label><input type="radio" name="gender" value="m" />
+            男性</label>
+        <label><input type="radio" name="gender" value="f" checked="checked" />
+            女性</label>
+    </p>
+</form>
+
+<hr>
+
+</body>
+</html>

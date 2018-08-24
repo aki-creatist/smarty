@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.addEventListener('load',
+            function(event) {
+                var elem = document.getElementById('gender1');
+                elem.addEventListener('focus', checkSelectRadio, false);
+            }
+            ,false);
+
+        var errArr = [];
+
+        function onRadioButtonChange()
+        {
+            var check = document.getElementsByName('gender');
+            for (i = 0; i < check.length; i++) {
+                if (check[i].checked) {
+                    check = true;
+                    break;
+                }
+            }
+
+            var target = document.getElementById('output_gender');
+
+            if (check == true) {
+                target.innerHTML = '';
+            }
+        }
+
+        function checkSelectRadio()
+        {
+            var check1 = "";
+            if(check1 == false ){
+                var selected_flg = false;
+            }
+
+            var elm = document.getElementsByName('gender');
+            for (i = 0; i < elm.length; i++) {
+                if (elm[i].checked) {
+                    selected_flg = true;
+                    break;
+                }
+            }
+            output = document.getElementById('output_gender');
+
+            if (selected_flg == false) {
+                output.innerHTML = '性別を選択してください';
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+<table>
+    <tr>
+        <th>性別<span class="red;">*</span></th>
+        <td>
+            <input type=radio id="gender1" name="gender" value=0 onchange="onRadioButtonChange();">男
+            <input type=radio id="gender2" name="gender" value=1 onchange="onRadioButtonChange();">女
+            <br><span id="output_gender"></span>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <title>入力検証</title>
+</head>
+
+<body>
+<style>
+    #error_summary {
+        color: #f00;
+        display: none;
+    }
+
+    .error_field {
+        background-color: #f9c;
+    }
+
+    .error_mark {
+        color: #f00;
+    }
+</style>
+
+<script>
+    $(function() {
+        var msgs;
+        var setError = function(elem, msg) {
+            msgs.push('<li>' + msg + '</li>');
+            $(elem)
+                .addClass('error_field')
+                .after('<span class="error_mark">*</span>');
+        };
+
+        $('#fm').submit(function(e) {
+            msgs = [];
+            $('.error_mark', this).remove();
+            $('.valid', this)
+                .removeClass('error_field')
+                .filter('.length')
+                .each(function() {
+                    if ($(this).val().length > $(this).data('length')) {
+                        setError(this,
+                            $(this).prev('label').text() + 'は' +
+                            $(this).data('length') + '文字以内で入力してください。');
+                    }
+                })
+            if (msgs.length === 0) {
+                $('#error_summary').css('display', 'none');
+            } else {
+                $('#error_summary')
+                    .css('display', 'block')
+                    .html(msgs.join(''));
+                e.preventDefault();
+            }
+        });
+    });
+</script>
+
+<ul id="error_summary"></ul>
+<form id="fm" class="clear">
+    <div class="field">
+    <label for="memo">備考</label>
+    <input type="text" id="title" size="10" class="valid length"
+    data-length="10" />
+    </div>
+    <div class="field">
+        <input type="submit" value="送信" />
+    </div>
+</form>
+</body>
+</html>

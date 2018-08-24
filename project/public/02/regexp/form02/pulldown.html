@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="pulldown.js"></script>
+</head>
+<body>
+<form name="pulldown" method="post" action="pulldown.php">
+    <select name="year" id="year" onchange="onPulldownChange();">
+        <option selected>選択してください</option>
+        <option value="2016">2016年</option>
+        <option value="2017">2017年</option>
+        <option value="2018">2018年</option>
+    </select>
+    <br><span id="output_year"></span>
+    <input type="submit" value="送　信">
+</form>
+</body>
+</html>
